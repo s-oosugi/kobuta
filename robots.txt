@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.kobutawedding.com/sitemap.xml
+
+# Crawl-delay (optional, to be respectful to search engines)
+Crawl-delay: 1
