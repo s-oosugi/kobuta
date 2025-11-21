@@ -1,0 +1,13 @@
+# SEO関連ファイル
+SEO-GUIDE.md
+
+# macOS
+.DS_Store
+
+# エディタ
+.vscode/
+.idea/
+
+# 一時ファイル
+*.log
+*.tmp
