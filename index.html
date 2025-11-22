@@ -6,174 +6,310 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Noto+Serif+JP:wght@300;400;600&display=swap"
+        rel="stylesheet">
 
     <!-- Primary Meta Tags -->
     <meta name="description" content="愛知・名古屋・岐阜・三重の人気フォトウェディング和装前撮りならこぶたしゃしんかん。">
-    <title>こぶたしゃしんかん - THE WEDDING QUEST</title>
+    <title>KOBUTA PHOTO STUDIO | Premium Wedding Photography</title>
     <link rel="icon" type="image/png" href="assets/piglet.png">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Unified Game Header -->
-    <header class="game-header">
-        <div class="header-logo">
-            <img src="assets/piglet.png" alt="Icon" class="header-icon">
-            <span>LV.99 KOBUTA</span>
+    <!-- Luxury Header -->
+    <header class="luxury-header" id="header">
+        <div class="header-inner">
+            <div class="header-logo">
+                <span class="logo-text">KOBUTA PHOTO STUDIO</span>
+            </div>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="header-nav" id="nav">
+                <a href="#home" class="nav-item">Home</a>
+                <a href="#plans" class="nav-item">Plans</a>
+                <a href="#gallery" class="nav-item">Gallery</a>
+                <a href="#about" class="nav-item">About</a>
+                <a href="#access" class="nav-item">Access</a>
+            </nav>
         </div>
-        <nav class="header-nav">
-            <a href="#home" class="nav-item">ぼうけん</a>
-            <a href="#plans" class="nav-item">どうぐ</a>
-            <a href="#about" class="nav-item">じょうほう</a>
-            <a href="#access" class="nav-item">ちず</a>
-        </nav>
     </header>
 
-    <div class="game-container">
+    <main class="main-container">
 
-        <!-- Title Screen -->
-        <section id="home" class="title-screen">
-            <h1 class="title-logo-text">KOBUTA PHOTO</h1>
-
-            <div class="rpg-window hero-message-box">
-                <p>
-                    ゆうしゃよ！<br>
-                    しらむくと いろうちかけ<br>
-                    どちらも のこすのじゃ！
+        <!-- Hero Section -->
+        <section id="home" class="hero-section scroll-reveal">
+            <div class="hero-content">
+                <h1 class="hero-title">Capture the Moment<br>of Eternity</h1>
+                <p class="hero-subtitle">
+                    白無垢と色打掛、<br>
+                    その両方を美しく残す贅沢を。
                 </p>
             </div>
-
-            <div class="hero-image-container">
+            <div class="hero-image-wrapper">
                 <img src="assets/hero.jpg" alt="Wedding Photo" class="hero-image">
-                <img src="assets/hero_pixel.png" class="pixel-overlay" style="right: -30px; bottom: -30px; width: 80px;"
-                    alt="Hero">
-                <img src="assets/slime.png" class="pixel-overlay" style="left: -20px; bottom: -10px; width: 48px;"
-                    alt="Slime">
             </div>
         </section>
 
-        <!-- Quest List (Plans) -->
-        <section id="plans">
-            <h2 class="section-title">ITEM SHOP</h2>
+        <!-- Plans Section -->
+        <section id="plans" class="section-luxury scroll-reveal">
+            <div class="section-header">
+                <h2 class="section-title">Plans</h2>
+                <p class="section-desc">洗練された3つのプランをご用意しております</p>
+            </div>
+
             <div class="plan-grid">
                 <!-- Plan S -->
-                <div class="rpg-window plan-card">
+                <div class="plan-card">
                     <div class="plan-header">
-                        <div class="plan-name">Sプラン</div>
-                        <div class="plan-price">55000G</div>
+                        <h3 class="plan-name">Standard Plan</h3>
+                        <div class="plan-price">¥55,000</div>
                     </div>
-                    <div class="plan-desc">
-                        <p>とにかく よさんを おさえたい！</p>
-                        <ul class="equip-list">
-                            <li>しらむく</li>
-                            <li>いろうちかけ</li>
-                            <li>データ</li>
+                    <div class="plan-body">
+                        <p class="plan-concept">予算を抑えつつ、伝統的な美しさを。</p>
+                        <ul class="plan-features">
+                            <li>白無垢</li>
+                            <li>色打掛</li>
+                            <li>撮影データ</li>
                         </ul>
                     </div>
-                    <a href="#" class="btn-rpg">かう</a>
+                    <a href="#" class="btn-luxury">Reserve</a>
                 </div>
 
                 <!-- Plan Location -->
-                <div class="rpg-window plan-card">
+                <div class="plan-card">
                     <div class="plan-header">
-                        <div class="plan-name">ロケプラン</div>
-                        <div class="plan-price">70000G</div>
+                        <h3 class="plan-name">Location Plan</h3>
+                        <div class="plan-price">¥70,000</div>
                     </div>
-                    <div class="plan-desc">
-                        <p>そとで ぼうけん したい！</p>
-                        <ul class="equip-list">
-                            <li>ロケーション</li>
-                            <li>データ</li>
+                    <div class="plan-body">
+                        <p class="plan-concept">四季折々の風景と共に。</p>
+                        <ul class="plan-features">
+                            <li>ロケーション撮影</li>
+                            <li>撮影データ</li>
                             <li>ヘアメイク</li>
                         </ul>
                     </div>
-                    <a href="#" class="btn-rpg">かう</a>
+                    <a href="#" class="btn-luxury">Reserve</a>
                 </div>
 
                 <!-- Plan Dried Flower -->
-                <div class="rpg-window plan-card" style="border-color: var(--accent-color);">
+                <div class="plan-card featured">
                     <div class="plan-header">
-                        <div class="plan-name">ドライフラワー</div>
-                        <div class="plan-price">73000G</div>
+                        <h3 class="plan-name">Dried Flower Plan</h3>
+                        <div class="plan-price">¥73,000</div>
                     </div>
-                    <div class="plan-desc">
-                        <p>★にんき No.1<br>おはなに かこまれて さつえい</p>
-                        <ul class="equip-list">
-                            <li>しらむく</li>
-                            <li>いろうちかけ</li>
-                            <li>データ120</li>
+                    <div class="plan-body">
+                        <p class="plan-concept">★人気No.1<br>ドライフラワーに囲まれた幻想的な空間で。</p>
+                        <ul class="plan-features">
+                            <li>白無垢</li>
+                            <li>色打掛</li>
+                            <li>データ120カット</li>
                         </ul>
                     </div>
-                    <a href="#" class="btn-rpg">かう</a>
+                    <a href="#" class="btn-luxury">Reserve</a>
                 </div>
             </div>
         </section>
 
-        <!-- Information (About) -->
-        <section id="about" style="margin-top: 6rem;">
-            <h2 class="section-title">INFORMATION</h2>
-            <div class="rpg-window">
-                <h3>▼ こぶたしゃしんかん とは</h3>
-                <p style="margin-top: 1.5rem;">
-                    たくさんの はなよめさまに<br>
-                    にほんの でんとう いしょうを<br>
-                    のこして ほしいのじゃ。
+
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="section-luxury scroll-reveal">
+            <div class="section-header">
+                <h2 class="section-title">Gallery</h2>
+                <p class="section-desc">幸せの瞬間を、永遠のカタチに。</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="assets/hero.jpg" alt="Gallery Photo 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/hero.jpg" alt="Gallery Photo 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/hero.jpg" alt="Gallery Photo 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/hero.jpg" alt="Gallery Photo 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/hero.jpg" alt="Gallery Photo 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/hero.jpg" alt="Gallery Photo 6">
+                </div>
+            </div>
+        </section>
+
+        <!-- Flow Section -->
+        <section id="flow" class="section-luxury scroll-reveal">
+            <div class="section-header">
+                <h2 class="section-title">Flow</h2>
+                <p class="section-desc">撮影までの流れ</p>
+            </div>
+            <div class="flow-container">
+                <div class="flow-step">
+                    <div class="step-number">01</div>
+                    <h3 class="step-title">Contact</h3>
+                    <p class="step-desc">LINEまたはお電話にてお問い合わせください。<br>空き状況やプランのご相談を承ります。</p>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">02</div>
+                    <h3 class="step-title">Meeting</h3>
+                    <p class="step-desc">オンラインまたはお電話にてお打ち合わせ。<br>ご希望のイメージをお聞かせください。</p>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">03</div>
+                    <h3 class="step-title">Shooting</h3>
+                    <p class="step-desc">撮影当日。ヘアメイクと着付けを行い、<br>リラックスした雰囲気で撮影を楽しみましょう。</p>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">04</div>
+                    <h3 class="step-title">Delivery</h3>
+                    <p class="step-desc">撮影データは後日、ダウンロード形式にて<br>お届けいたします。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Parallax Divider -->
+        <div class="parallax-divider scroll-reveal">
+            <div class="parallax-content">
+                <p class="parallax-text">Your Story, Our Passion.</p>
+            </div>
+        </div>
+
+        <!-- Voice Section -->
+        <section id="voice" class="section-luxury scroll-reveal">
+            <div class="section-header">
+                <h2 class="section-title">Voice</h2>
+                <p class="section-desc">お客様の声</p>
+            </div>
+            <div class="voice-grid">
+                <div class="voice-card">
+                    <div class="voice-header">
+                        <span class="voice-name">M & K 様</span>
+                        <span class="voice-date">2024.10</span>
+                    </div>
+                    <p class="voice-text">
+                        スタッフの皆さんがとても親切で、緊張せずに撮影できました。<br>
+                        ドライフラワーのスタジオが本当に素敵で、出来上がった写真も宝物です。
+                    </p>
+                </div>
+                <div class="voice-card">
+                    <div class="voice-header">
+                        <span class="voice-name">T & S 様</span>
+                        <span class="voice-date">2024.09</span>
+                    </div>
+                    <p class="voice-text">
+                        和装の種類がたくさんあって迷いましたが、的確なアドバイスをいただけて良かったです。<br>
+                        ロケーション撮影も天気に恵まれ、最高の思い出になりました。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section-luxury bg-light scroll-reveal">
+            <div class="section-header">
+                <h2 class="section-title">Philosophy</h2>
+            </div>
+            <div class="about-content">
+                <p>
+                    多くの花嫁様に、<br>
+                    日本の伝統衣装である和装の美しさを<br>
+                    心ゆくまで楽しんでいただきたい。
                 </p>
-                <p style="margin-top: 1rem;">
-                    かみかざりや たび など<br>
-                    そうびひんは すべて むりょうじゃ！
+                <p>
+                    髪飾りや足袋などの装飾品は、<br>
+                    すべて無料でご用意しております。<br>
+                    追加料金の心配なく、<br>
+                    一生に一度の瞬間を最高の一枚に。
                 </p>
             </div>
         </section>
 
-        <!-- Hints (FAQ) -->
-        <section id="faq" style="margin-top: 6rem;">
-            <h2 class="section-title">HINTS</h2>
-
-            <div class="hint-box">
-                <div class="hint-q" onclick="this.parentElement.classList.toggle('active')">
-                    <span>うちあわせは ひつよう？</span>
-                    <span>▼</span>
-                </div>
-                <div class="hint-a">
-                    LINEや でんわで OKじゃ。<br>
-                    じぜんらいてんは ふようじゃよ。
-                </div>
+        <!-- FAQ Section -->
+        <section id="faq" class="section-luxury scroll-reveal">
+            <div class="section-header">
+                <h2 class="section-title">Q & A</h2>
             </div>
 
-            <div class="hint-box">
-                <div class="hint-q" onclick="this.parentElement.classList.toggle('active')">
-                    <span>ついかりょうきんは？</span>
-                    <span>▼</span>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>事前の打ち合わせは必要ですか？</span>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>LINEやお電話での打ち合わせが可能です。<br>事前のご来店は不要ですので、遠方の方もご安心ください。</p>
+                    </div>
                 </div>
-                <div class="hint-a">
-                    かからない！<br>
-                    ひょうじかかくが すべてじゃ。
-                </div>
-            </div>
-        </section>
 
-        <!-- Map (Access) -->
-        <section id="access" style="margin-top: 6rem;">
-            <h2 class="section-title">WORLD MAP</h2>
-            <div class="rpg-window" style="text-align: center;">
-                <p>NAGOYA STATION から でんしゃで 10ぷん</p>
-                <p style="margin-top: 1.5rem; color: var(--accent-color);">
-                    詳しくは 予約時に 伝えるぞ！
-                </p>
-                <a href="#" class="btn-rpg" style="width: auto; margin-top: 2rem; padding: 1rem 3rem;">LINEで きく</a>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>追加料金はかかりますか？</span>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>かかりません。<br>表示価格が全てですので、安心してお申し込みください。</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-    </div>
 
-    <footer class="game-footer">
-        <img src="assets/dragon.png" alt="Dragon" style="width: 64px; margin: 0 auto 1rem; filter: invert(1);">
-        <p>&copy; 2024 KOBUTA PHOTO STUDIO</p>
+        <!-- Instagram Section -->
+        <section id="instagram" class="section-luxury scroll-reveal">
+            <div class="section-header">
+                <h2 class="section-title">Instagram</h2>
+                <p class="section-desc">@kobuta_photo_studio</p>
+            </div>
+            <div class="insta-grid">
+                <div class="insta-item">
+                    <img src="assets/hero.jpg" alt="Insta 1">
+                </div>
+                <div class="insta-item">
+                    <img src="assets/hero.jpg" alt="Insta 2">
+                </div>
+                <div class="insta-item">
+                    <img src="assets/hero.jpg" alt="Insta 3">
+                </div>
+                <div class="insta-item">
+                    <img src="assets/hero.jpg" alt="Insta 4">
+                </div>
+            </div>
+            <div class="insta-btn-wrapper">
+                <a href="#" class="btn-luxury btn-wide"><i class="fab fa-instagram"></i> Follow on Instagram</a>
+            </div>
+        </section>
+
+        <!-- Access Section -->
+        <section id="access" class="section-luxury scroll-reveal">
+            <div class="section-header">
+                <h2 class="section-title">Access</h2>
+            </div>
+            <div class="access-content">
+                <p class="access-text">Nagoya Station から電車で10分</p>
+                <p class="access-note">詳細はご予約時にお伝えいたします。</p>
+                <a href="#" class="btn-luxury btn-wide">Contact via LINE</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="luxury-footer">
+        <div class="footer-inner">
+            <p class="copyright">&copy; 2024 KOBUTA PHOTO STUDIO. All Rights Reserved.</p>
+        </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 
 </html>
