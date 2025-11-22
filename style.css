@@ -1,76 +1,22 @@
 /* ================================================
-   こぶたしゃしんかん - FORTNITE STYLE 🎮
+   こぶたしゃしんかん - CLEAN RETRO RPG STYLE ⚔️
    ================================================ */
 
-/* Google Fonts Import - Gaming Style */
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;900&family=Noto+Sans+JP:wght@700;900&display=swap');
-
-/* ================================================
-   CSS Variables - FORTNITE カラーパレット & デザイントークン
-   ================================================ */
 :root {
-  /* フォートナイト カラーパレット */
-  --color-primary: #9D4EDD;
-  /* ビビッドパープル */
-  --color-primary-light: #C77DFF;
-  /* ライトパープル */
-  --color-primary-dark: #7B2CBF;
-  /* ダークパープル */
-  --color-accent: #FFD60A;
-  /* ビビッドイエロー */
-  --color-accent-light: #FFE566;
-  /* ライトイエロー */
-  --color-secondary: #00D9FF;
-  /* ネオンブルー */
-  --color-secondary-dark: #0096C7;
-  /* ダークブルー */
-  --color-background: #0F0F23;
-  /* ダークネイビー */
-  --color-background-alt: #1A1A35;
-  /* ミッドナイトブルー */
-  --color-text: #FFFFFF;
-  /* ホワイト */
-  --color-text-light: #B8B8D1;
-  /* ライトグレー */
-  --color-white: #ffffff;
-  --color-shadow: rgba(157, 78, 221, 0.5);
-  /* パープルグロー */
-  --color-glow-blue: rgba(0, 217, 255, 0.6);
-  --color-glow-yellow: rgba(255, 214, 10, 0.6);
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  --accent-color: #ff9900;
+  --border-color: #ffffff;
+  --window-bg: #000000;
 
-  /* タイポグラフィ */
-  --font-gaming: 'Barlow', sans-serif;
-  --font-sans: 'Noto Sans JP', sans-serif;
+  --font-main: 'DotGothic16', sans-serif;
 
-  /* スペーシング */
-  --spacing-xs: 0.5rem;
-  --spacing-sm: 1rem;
-  --spacing-md: 2rem;
-  --spacing-lg: 4rem;
-  --spacing-xl: 6rem;
-
-  /* ボーダー半径 */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-full: 999px;
-
-  /* トランジション */
-  --transition-fast: 0.2s ease;
-  --transition-medium: 0.3s ease;
-  --transition-slow: 0.5s ease;
-
-  /* シャドウ & グロー */
-  --shadow-sm: 0 2px 8px var(--color-shadow);
-  --shadow-md: 0 4px 16px var(--color-shadow);
-  --shadow-lg: 0 8px 32px var(--color-shadow);
-  --glow-purple: 0 0 20px var(--color-shadow), 0 0 40px var(--color-shadow);
-  --glow-blue: 0 0 20px var(--color-glow-blue), 0 0 40px var(--color-glow-blue);
-  --glow-yellow: 0 0 20px var(--color-glow-yellow), 0 0 40px var(--color-glow-yellow);
+  /* Pixel Perfect Border Variables */
+  --pixel-size: 4px;
 }
 
 /* ================================================
-   リセット & ベーススタイル
+   Base Styles
    ================================================ */
 * {
   margin: 0;
@@ -78,647 +24,367 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-  font-size: 16px;
-}
-
 body {
-  font-family: var(--font-gaming);
-  color: var(--color-text);
-  background: linear-gradient(135deg, var(--color-background) 0%, #1a1a3a 100%);
-  background-attachment: fixed;
-  line-height: 1.6;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-main);
+  line-height: 1.8;
+  /* Increased line height */
   overflow-x: hidden;
-  position: relative;
+  image-rendering: pixelated;
+  font-size: 16px;
+  padding-top: 80px;
+  /* Space for fixed header */
 }
 
-body::before {
-  content: '';
+/* Scanline Effect - Toned Down */
+body::after {
+  content: "";
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background:
-    radial-gradient(circle at 20% 50%, rgba(157, 78, 221, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(0, 217, 255, 0.1) 0%, transparent 50%);
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to bottom,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0) 50%,
+      rgba(0, 0, 0, 0.1) 50%,
+      /* Reduced opacity */
+      rgba(0, 0, 0, 0.1));
+  background-size: 100% 4px;
   pointer-events: none;
-  z-index: 0;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+  z-index: 9999;
+  opacity: 0.3;
+  /* Reduced opacity */
 }
 
 a {
   text-decoration: none;
   color: inherit;
-  transition: var(--transition-fast);
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
 }
 
 /* ================================================
-   タイポグラフィ
+   Pixel Perfect Window Mixin
    ================================================ */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-gaming);
-  font-weight: 900;
-  line-height: 1.2;
-  margin-bottom: var(--spacing-sm);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-h1 {
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  background: linear-gradient(135deg, var(--color-primary-light), var(--color-accent));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  filter: drop-shadow(0 0 20px var(--color-shadow));
-}
-
-h2 {
-  font-size: clamp(2rem, 5vw, 3rem);
-  color: var(--color-accent);
-  text-shadow: var(--glow-yellow);
-}
-
-h3 {
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  color: var(--color-secondary);
-}
-
-p {
-  margin-bottom: var(--spacing-sm);
-}
-
-.text-center {
-  text-align: center;
-}
-
-.text-accent {
-  color: var(--color-accent);
-}
-
-/* ================================================
-   レイアウト & コンテナ
-   ================================================ */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--spacing-md);
-}
-
-.section {
-  padding: var(--spacing-xl) 0;
+.rpg-window {
+  background-color: var(--window-bg);
   position: relative;
-}
+  padding: 2rem;
+  margin-bottom: 2rem;
+  color: var(--text-color);
 
-.section-alt {
-  background-color: var(--color-background-alt);
+  /* CSS Box Shadow Pixel Border */
+  box-shadow:
+    -4px 0 0 0 white,
+    4px 0 0 0 white,
+    0 -4px 0 0 white,
+    0 4px 0 0 white,
+    -4px -4px 0 0 white,
+    4px -4px 0 0 white,
+    -4px 4px 0 0 white,
+    4px 4px 0 0 white,
+    0 0 0 4px black;
+  /* Inner spacing */
+
+  border: 4px solid transparent;
+  /* Spacing for the shadow */
 }
 
 /* ================================================
-   ヘッダー & ナビゲーション
+   Layout
    ================================================ */
-.header {
+.game-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* ================================================
+   Unified Header
+   ================================================ */
+.game-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background: linear-gradient(to bottom, rgba(15, 15, 35, 0.95), rgba(26, 26, 53, 0.90));
-  backdrop-filter: blur(10px);
-  border-bottom: 2px solid var(--color-primary);
-  box-shadow: var(--glow-purple);
+  height: 80px;
+  background: #000;
+  border-bottom: 4px solid white;
   z-index: 1000;
-  transition: var(--transition-medium);
-}
-
-.header.scrolled {
-  box-shadow: var(--glow-purple);
-  border-bottom-color: var(--color-accent);
-}
-
-.header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--spacing-sm) var(--spacing-md);
+  padding: 0 2rem;
 }
 
-.logo {
-  font-family: var(--font-gaming);
-  font-size: 1.5rem;
-  font-weight: 900;
-  background: linear-gradient(135deg, var(--color-primary-light), var(--color-accent));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.header-logo {
   display: flex;
   align-items: center;
-  gap: var(--spacing-xs);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.nav {
-  display: flex;
-  gap: var(--spacing-md);
-}
-
-.nav a {
-  font-weight: 700;
-  position: relative;
-  padding: var(--spacing-xs) var(--spacing-sm);
-  text-transform: uppercase;
-  font-size: 0.9rem;
-  letter-spacing: 1px;
-}
-
-.nav a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
-  transition: var(--transition-fast);
-  transform: translateX(-50%);
-  box-shadow: var(--glow-purple);
-}
-
-.nav a:hover::after {
-  width: 100%;
-}
-
-.mobile-menu-toggle {
-  display: none;
-  background: var(--color-primary);
-  border: 2px solid var(--color-accent);
-  border-radius: var(--radius-sm);
-  padding: 0.5rem;
+  gap: 1rem;
   font-size: 1.5rem;
-  color: var(--color-white);
-  cursor: pointer;
-  box-shadow: var(--glow-purple);
+  font-weight: bold;
+}
+
+.header-icon {
+  width: 40px;
+  height: 40px;
+  image-rendering: pixelated;
+}
+
+.header-nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-item {
+  font-size: 1.2rem;
+  position: relative;
+  padding: 0.5rem 1rem;
+  transition: color 0.2s;
+}
+
+.nav-item:hover {
+  color: var(--accent-color);
+  background: #222;
 }
 
 /* ================================================
-   ヒーローセクション
+   Hero Section (Title Screen)
    ================================================ */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  margin-top: 70px;
-}
-
-.hero-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-
-.hero-background img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.3;
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background:
-    linear-gradient(135deg, rgba(157, 78, 221, 0.4), rgba(0, 217, 255, 0.3)),
-    radial-gradient(circle at 50% 50%, rgba(255, 214, 10, 0.2) 0%, transparent 70%);
-  z-index: -1;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
+.title-screen {
   text-align: center;
-  animation: fadeInUp 1s ease, pulse 3s ease-in-out infinite;
+  margin-bottom: 6rem;
+  /* Increased spacing */
+  position: relative;
+  padding: 2rem 0;
 }
 
-.hero-title {
-  margin-bottom: var(--spacing-md);
-}
-
-.hero-subtitle {
-  font-size: clamp(1.1rem, 2vw, 1.4rem);
-  color: var(--color-text);
-  margin-bottom: var(--spacing-lg);
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  font-weight: 600;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-}
-
-/* ================================================
-   ボタン
-   ================================================ */
-.btn {
+.title-logo-text {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  text-shadow: 4px 4px 0 #444;
   display: inline-block;
-  padding: 1rem 2rem;
-  border-radius: var(--radius-sm);
-  font-weight: 900;
+}
+
+.hero-message-box {
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  text-align: left;
+}
+
+.hero-image-container {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  border: 4px solid white;
+  padding: 4px;
+}
+
+.hero-image {
+  width: 100%;
+  filter: grayscale(100%) contrast(1.1);
+  transition: filter 0.5s;
+}
+
+.hero-image:hover {
+  filter: grayscale(0%);
+}
+
+.pixel-overlay {
+  position: absolute;
+  image-rendering: pixelated;
+  z-index: 10;
+}
+
+/* ================================================
+   Content Sections
+   ================================================ */
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 3rem;
   text-align: center;
-  cursor: pointer;
-  border: 3px solid;
-  transition: var(--transition-medium);
-  font-family: var(--font-gaming);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 1.1rem;
+  border-bottom: 2px solid white;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  left: 50%;
   position: relative;
-  overflow: hidden;
-}
-
-.btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  transition: left 0.5s;
-}
-
-.btn:hover::before {
-  left: 100%;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-  border-color: var(--color-accent);
-  color: var(--color-white);
-  box-shadow: var(--glow-purple);
-}
-
-.btn-primary:hover {
-  transform: translateY(-4px) scale(1.05);
-  box-shadow: var(--glow-purple), var(--glow-yellow);
-}
-
-.btn-outline {
-  background: rgba(157, 78, 221, 0.1);
-  border-color: var(--color-accent);
-  color: var(--color-accent);
-  box-shadow: var(--glow-yellow);
-}
-
-.btn-outline:hover {
-  background: var(--color-accent);
-  color: var(--color-background);
-  transform: translateY(-4px) scale(1.05);
-}
-
-.btn-group {
-  display: flex;
-  gap: var(--spacing-sm);
-  justify-content: center;
-  flex-wrap: wrap;
+  transform: translateX(-50%);
 }
 
 /* ================================================
-   カードコンポーネント
+   Plan Cards (Item Shop)
    ================================================ */
-.card {
-  background: linear-gradient(135deg, var(--color-background-alt), var(--color-background));
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-md);
-  border: 2px solid var(--color-primary);
-  box-shadow: var(--glow-purple);
-  transition: var(--transition-medium);
-  overflow: hidden;
-  position: relative;
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(45deg, var(--color-primary), var(--color-accent), var(--color-secondary));
-  border-radius: var(--radius-lg);
-  opacity: 0;
-  transition: opacity var(--transition-medium);
-  z-index: -1;
-}
-
-.card:hover::before {
-  opacity: 1;
-}
-
-.card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: var(--glow-purple), var(--glow-blue);
-  border-color: var(--color-accent);
-}
-
-.card-image {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  border-radius: var(--radius-sm);
-  margin-bottom: var(--spacing-sm);
-  border: 2px solid var(--color-secondary);
-}
-
-.card-title {
-  font-size: 1.3rem;
-  margin-bottom: var(--spacing-xs);
-  color: var(--color-primary-light);
-  text-transform: uppercase;
-  font-weight: 900;
-}
-
-.card-price {
-  font-size: 2.5rem;
-  font-weight: 900;
-  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin: var(--spacing-sm) 0;
-  text-shadow: var(--glow-yellow);
-}
-
-.card-description {
-  color: var(--color-text-light);
-  line-height: 1.8;
-}
-
-/* ================================================
-   グリッドレイアウト
-   ================================================ */
-.grid {
+.plan-grid {
   display: grid;
-  gap: var(--spacing-md);
-}
-
-.grid-2 {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
 }
 
-.grid-3 {
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+.plan-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.2s;
 }
 
-.grid-4 {
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+.plan-card:hover {
+  transform: translateY(-4px);
 }
 
-/* ================================================
-   About Us セクション
-   ================================================ */
-.about-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-lg);
+.plan-header {
+  border-bottom: 2px dashed #444;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.plan-name {
+  font-size: 1.4rem;
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+.plan-price {
+  font-size: 1.6rem;
+}
+
+.plan-desc {
+  flex-grow: 1;
+  margin-bottom: 1.5rem;
+}
+
+.equip-list {
+  list-style: none;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  padding-left: 0;
+}
+
+.equip-list li {
+  margin-bottom: 0.5rem;
+  display: flex;
   align-items: center;
 }
 
-.about-image {
-  position: relative;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
-}
-
-.about-text h2 {
-  color: var(--color-primary-dark);
-  margin-bottom: var(--spacing-md);
-}
-
-.features-list {
-  list-style: none;
-  margin-top: var(--spacing-md);
-}
-
-.features-list li {
-  padding: var(--spacing-sm);
-  margin-bottom: var(--spacing-xs);
-  background: linear-gradient(90deg, var(--color-background-alt), transparent);
-  border-radius: var(--radius-sm);
-  border-left: 4px solid var(--color-accent);
-  border: 2px solid var(--color-primary);
-  transition: var(--transition-fast);
-  box-shadow: var(--glow-purple);
-}
-
-.features-list li:hover {
-  transform: translateX(8px);
-  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
-  box-shadow: var(--glow-blue);
-  border-color: var(--color-accent);
+.equip-list li::before {
+  content: "E";
+  margin-right: 0.8rem;
+  color: var(--accent-color);
+  font-weight: bold;
+  font-size: 1.1rem;
 }
 
 /* ================================================
-   FAQ セクション
+   Buttons
    ================================================ */
-.faq-item {
-  background: var(--color-background-alt);
-  border-radius: var(--radius-md);
-  margin-bottom: var(--spacing-sm);
-  overflow: hidden;
-  border: 2px solid var(--color-primary);
-  box-shadow: var(--glow-purple);
+.btn-rpg {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  border: 2px solid white;
+  position: relative;
+  transition: all 0.2s;
+  text-align: center;
+  width: 100%;
+  margin-top: 1rem;
+  cursor: pointer;
 }
 
-.faq-question {
-  width: 100%;
-  text-align: left;
-  padding: var(--spacing-sm) var(--spacing-md);
-  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
-  border: none;
+.btn-rpg:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* ================================================
+   FAQ (Hint Window)
+   ================================================ */
+.hint-box {
+  margin-bottom: 1.5rem;
+}
+
+.hint-q {
   cursor: pointer;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--color-white);
+  padding: 1.5rem;
+  background: #111;
+  border: 2px solid #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: var(--transition-fast);
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  transition: background 0.2s;
 }
 
-.faq-question:hover {
-  background: linear-gradient(90deg, var(--color-accent), var(--color-primary-light));
-  box-shadow: var(--glow-yellow);
+.hint-q:hover {
+  background: #333;
 }
 
-.faq-icon {
-  transition: var(--transition-fast);
-  font-size: 1.5rem;
+.hint-a {
+  padding: 1.5rem;
+  border: 2px solid #fff;
+  border-top: none;
+  display: none;
+  background: #000;
+  line-height: 2;
 }
 
-.faq-item.active .faq-icon {
-  transform: rotate(180deg);
-}
-
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height var(--transition-medium);
-  padding: 0 var(--spacing-md);
-  background: var(--color-background);
-}
-
-.faq-item.active .faq-answer {
-  max-height: 500px;
-  padding: var(--spacing-md);
+.hint-box.active .hint-a {
+  display: block;
 }
 
 /* ================================================
-   フッター
+   Footer
    ================================================ */
-.footer {
-  background: linear-gradient(135deg, var(--color-background), var(--color-background-alt));
-  border-top: 3px solid var(--color-primary);
-  color: var(--color-white);
-  padding: var(--spacing-lg) 0 var(--spacing-md);
-  box-shadow: 0 -5px 30px var(--color-shadow);
-}
-
-.footer-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--spacing-md);
-  margin-bottom: var(--spacing-md);
-}
-
-.footer-section h3 {
-  margin-bottom: var(--spacing-sm);
-  color: var(--color-accent);
-  text-shadow: var(--glow-yellow);
-}
-
-.footer-bottom {
+.game-footer {
   text-align: center;
-  padding-top: var(--spacing-md);
-  border-top: 2px solid var(--color-primary);
-  color: var(--color-text-light);
+  padding: 4rem 0;
+  margin-top: 6rem;
+  border-top: 4px solid white;
+  background: #111;
 }
 
 /* ================================================
-   アニメーション
-   ================================================ */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes pulse {
-
-  0%,
-  100% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.02);
-  }
-}
-
-.fade-in-up {
-  animation: fadeInUp 0.8s ease;
-}
-
-.scroll-reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.scroll-reveal.revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ================================================
-   レスポンシブ対応
+   Responsive
    ================================================ */
 @media (max-width: 768px) {
-  .nav {
+  .game-header {
+    padding: 0 1rem;
+    height: 60px;
+  }
+
+  .header-nav {
     display: none;
+    /* Hide nav on mobile for simplicity, or use hamburger */
+  }
+
+  /* Simple mobile nav replacement */
+  .header-nav.mobile-active {
+    display: flex;
     flex-direction: column;
     position: absolute;
-    top: 100%;
+    top: 60px;
     left: 0;
-    right: 0;
-    background: var(--color-white);
-    box-shadow: var(--shadow-md);
-    padding: var(--spacing-sm);
-  }
-
-  .nav.active {
-    display: flex;
-  }
-
-  .mobile-menu-toggle {
-    display: block;
-  }
-
-  .about-content {
-    grid-template-columns: 1fr;
-  }
-
-  .hero {
-    min-height: 80vh;
-  }
-
-  .section {
-    padding: var(--spacing-lg) 0;
-  }
-}
-
-@media (max-width: 480px) {
-  :root {
-    font-size: 14px;
-  }
-
-  .container {
-    padding: 0 var(--spacing-sm);
-  }
-
-  .btn-group {
-    flex-direction: column;
     width: 100%;
+    background: #000;
+    border-bottom: 4px solid white;
+    padding: 1rem;
+    gap: 1rem;
   }
 
-  .btn {
-    width: 100%;
+  .title-logo-text {
+    font-size: 2.5rem;
+  }
+
+  body {
+    padding-top: 60px;
   }
 }
